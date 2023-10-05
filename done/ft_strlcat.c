@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:44:15 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/04 18:20:12 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:12:05 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_strlcat(char *dst, char *src, int l)
 
 	dlen = ft_strlen(dst);
 	i = dlen - 1;
-	while (++i < l)
+	while (++i < (l - 1))
 		dst[i] = src[i - dlen];
 	dst[i] = '\0';
 	return (dlen + ft_strlen(src));
