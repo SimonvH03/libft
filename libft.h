@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/05 14:08:33 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:43:16 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_isalpha(int c);
 int	ft_isascii(int c);
 int	ft_isdigit(int c);
 int	ft_isprint(int c);
+int	ft_strlcat(char *dst, char *src, int l);
 int	ft_strlcpy(char *dst, char *src, int l);
 int	ft_strlen(char *c);
 int	ft_tolower(int c);
