@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:31:33 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/05 22:06:02 by svan-hoo         ###   ########.fr       */
+/*   Created: 2023/10/05 21:37:21 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/10/05 22:06:30 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-
-int	ft_strlen(char *c)
-{
-	int	i;
-
-	i = 0;
-	while (c[i])
-		i++;
-	return (i);
-}
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -36,13 +26,4 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (--n && (str1[i] || str2[i]) && str1[i] == str2[i])
 		i++;
 	return (str1[i] - str2[i]);
-}
-
-int	main(void)
-{
-	char	a[50] = "abcdefg";
-	char	b[50] = "abcdefg";
-
-	printf("%d", ft_memcmp(a, b, 0));
-	return (0);
 }
