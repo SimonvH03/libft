@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/05 15:43:16 by svan-hoo         ###   ########.fr       */
+/*   Created: 2023/10/05 18:51:27 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/10/10 19:40:34 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <stddef.h>
 
-int	ft_atoi(char *c);
-int	ft_isalnum(int c);
-int	ft_isalpha(int c);
-int	ft_isascii(int c);
-int	ft_isdigit(int c);
-int	ft_isprint(int c);
-int	ft_strlcat(char *dst, char *src, int l);
-int	ft_strlcpy(char *dst, char *src, int l);
-int	ft_strlen(char *c);
-int	ft_tolower(int c);
-int	ft_toupper(int c);
+static size_t	ft_strlen(char *c)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while (c[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strrchr(char *str, int c)
+{
+	int		i;
+
+	i = ft_strlen(str) - 1;
+	if (!c)
+		return (&str[i + 1]);
+	while (i && str[i] && str[i] != c)
+		i--;
+	if (str[i] == c)
+		return (&str[i]);
+	return ((void *)0);
+}

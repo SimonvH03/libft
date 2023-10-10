@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:44:15 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/05 18:12:05 by svan-hoo         ###   ########.fr       */
+/*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/10/10 19:46:50 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *c)
-{
-	int	i;
+#ifndef LIBFT_H
+# define LIBFT_H
+# include <stddef.h>
+# include <stdio.h>
+# include <stdlib.h>
 
-	i = 0;
-	while (c[i])
-		i++;
-	return (i);
-}
+ft_bzero();
+ft_calloc();
+ft_memcpy();
+ft_memmove();
+ft_memset();
+ft_strdup();
 
-int	ft_strlcat(char *dst, char *src, int l)
-{
-	int	dlen;
-	int	i;
-
-	dlen = ft_strlen(dst);
-	i = dlen - 1;
-	while (++i < (l - 1))
-		dst[i] = src[i - dlen];
-	dst[i] = '\0';
-	return (dlen + ft_strlen(src));
-}
+#endif

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:13:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/05 19:47:59 by svan-hoo         ###   ########.fr       */
+/*   Created: 2023/10/05 21:37:21 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/10/10 19:37:34 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stddef.h>
 
-char	*ft_strnstr(char *haystack, char *needle, int n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	nlen;
+	unsigned char	*str1;
+	unsigned char	*str2;
+	int				i;
 
-	nlen = ft_strlen(needle) - 1;
-	while ((--n - nlen) && *haystack++)
-		if (!ft_strncmp(haystack, needle, nlen))
-			return (haystack);
-	return (needle);
+	i = 0;
+	if (n == 0)
+		return (0);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (--n && (str1[i] || str2[i]) && str1[i] == str2[i])
+		i++;
+	return (str1[i] - str2[i]);
 }

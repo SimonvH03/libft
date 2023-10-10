@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 18:51:27 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/05 19:58:54 by svan-hoo         ###   ########.fr       */
+/*   Created: 2023/10/04 16:18:00 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/10/10 19:40:07 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(char *str, int c)
-{
-	int		i;
+#include <stddef.h>
 
-	i = ft_strlen(str) - 1;
-	if (!c)
-		return (&str[i + 1]);
-	while (i && str[i] && str[i] != c)
-		i--;
-	if (str[i] == c)
-		return (&str[i]);
-	return ((void *)0);
+static size_t	ft_strlen(char *c)
+{
+	size_t	i;
+
+	i = 0;
+	while (c[i])
+		i++;
+	return (i);
+}
+
+int	ft_strlcpy(char *dst, char *src, int l)
+{
+	int	i;
+
+	i = -1;
+	while (++i < l - 1)
+		dst[i] = src[i];
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }
