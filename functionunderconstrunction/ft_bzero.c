@@ -6,7 +6,18 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:16:40 by simon             #+#    #+#             */
-/*   Updated: 2023/10/12 15:01:42 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:05:53 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
+
+void	*ft_bzero(void *mb, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while(mb[i] && n--)
+		mb[i++] = '\0';
+	return (mb);
+}
