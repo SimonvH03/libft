@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/12 18:59:52 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:49:34 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ char		*ft_strchr(char *str, int c);
 int			ft_strlcat(char *dst, const char *src, int l);
 int			ft_strlcpy(char *dst, const char *src, int l);
 size_t		ft_strlen(const char *c);
-int			ft_strncmp(const char *a, const char *b, int n);
-const char	*ft_strnstr(const char *haystack, const char *needle, int n);
+int			ft_strncmp(const char *a, const char *b, size_t n);
+const char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 const char	*ft_strrchr(const char *str, int c);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
