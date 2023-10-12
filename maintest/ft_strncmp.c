@@ -6,11 +6,11 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:19:24 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/12 15:58:36 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:53:04 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *a, char *b, int n)
+int	ft_strncmp(const char *a, const char *b, int n)
 {
 	while ((*(a++) && n && *(b++)) && *a == *b)
 		n++;

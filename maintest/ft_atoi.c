@@ -6,13 +6,13 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:55:23 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/12 15:45:38 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:55:07 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *c)
+int	ft_atoi(const char *c)
 {
 	size_t	s;
 	size_t	i;
