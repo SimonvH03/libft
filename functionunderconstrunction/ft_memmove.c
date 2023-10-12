@@ -3,25 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:25:45 by simon             #+#    #+#             */
-/*   Updated: 2023/10/12 15:39:33 by simon            ###   ########.fr       */
+/*   Updated: 2023/10/12 15:37:47 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-int	ft_memmove(void *mb1, void *mb2)
+void	*ft_memmove(void *dest, void *src, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*ucdest;
+	unsigned char	*ucsrc;
 
 	i = 0;
-	while (mb1[i] && mb2[i])
+	ucdest = (unsigned char *)dest;
+	ucsrc = (unsigned char *)src;
+	while (n--)
 	{
-		mb2[i] = mb1[i];
-		mb1[i] = '\0';
+		ucdest[i] = ucsrc[i];
 		i++;
 	}
-	return (?);
+	return (dest);
 }

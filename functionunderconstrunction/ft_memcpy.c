@@ -6,23 +6,25 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:20:13 by simon             #+#    #+#             */
-/*   Updated: 2023/10/12 15:14:05 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:21:47 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-int	ft_memcpy(void *mb0, void *mb1)
+void	*ft_memcpy(void *dest, void *src, size_t n)
 {
 	size_t			i;
-	unsigned char	*str0;
-	unsigned char	*str1;
+	unsigned char	*ucdest;
+	unsigned char	*ucsrc;
 
 	i = 0;
-	while (str0[i] && str1[i])
+	ucdest = (unsigned char *)dest;
+	ucsrc = (unsigned char *)src;
+	while (n--)
 	{
-		str1[i] = str0[i];
+		ucsrc[i] = ucdest[i];
 		i++;
 	}
-	return (0);
+	return (dest);
 }
