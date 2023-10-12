@@ -6,11 +6,11 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:25:45 by simon             #+#    #+#             */
-/*   Updated: 2023/10/12 15:37:47 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:07:56 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, void *src, size_t n)
 {

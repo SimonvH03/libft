@@ -6,11 +6,11 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:59:12 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/10 19:35:26 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:08:50 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlen(char *c)
 {

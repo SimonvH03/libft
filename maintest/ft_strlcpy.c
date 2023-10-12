@@ -6,21 +6,11 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:18:00 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/10 19:40:07 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:08:46 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-static size_t	ft_strlen(char *c)
-{
-	size_t	i;
-
-	i = 0;
-	while (c[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 int	ft_strlcpy(char *dst, char *src, int l)
 {
