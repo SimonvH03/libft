@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/13 18:23:24 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/13 21:25:55 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 int			ft_atoi(const char *c);
 void		ft_bzero(void *s, size_t n);
+void		*ft_calloc(size_t nmemb, size_t size);
 int			ft_isalnum(int c);
 int			ft_isalpha(int c);
 int			ft_isascii(int c);
