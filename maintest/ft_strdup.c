@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:13:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/12 21:11:11 by svan-hoo         ###   ########.fr       */
+/*   Created: 2023/10/12 15:39:42 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/10/17 16:52:15 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
+char	*ft_strdup(const char *s)
 {
 	size_t	i;
-	size_t	nlen;
+	char	*ptr;
 
 	i = 0;
-	nlen = ft_strlen(needle);
-	while (n && haystack[i])
+	while (s[i])
+		i++;
+	ptr = malloc((i + 1) * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		if (!ft_strncmp(haystack, needle, nlen))
-			return (haystack);
+		ptr[i] = s[i];
 		i++;
 	}
-	return (NULL);
+	ptr[i] = 0;
+	return (ptr);
 }
