@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/19 19:01:58 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/19 21:04:23 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
+char		**ft_split(const char *s, char c);
 const char	*ft_strchr(const char *str, int c);
 char		*ft_strdup(const char *s);
 size_t		ft_strlcat(char *dst, const char *src, size_t l);
