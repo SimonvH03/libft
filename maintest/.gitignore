@@ -1,0 +1,4 @@
+libft.a
+*.o
+libft.h.gch
+a.out
