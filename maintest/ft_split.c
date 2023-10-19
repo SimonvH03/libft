@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/19 21:44:01 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/19 23:12:58 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ static int	ft_countcwords(const char *str, char c)
 	while (str[i])
 	{
 		if (str[i] != c)
-		{
 			inword = 1;
-		}
 		if (inword == 1 && str[i] == c)
 		{
 			inword = 0;
@@ -37,38 +35,101 @@ static int	ft_countcwords(const char *str, char c)
 	return (count);
 }
 
+static int	ft_strclen(const char *str, char c, int k)
+{
+	int	i;
+	int	inword;
+	int	splitcount;
+	int charcount;
 
-// static ft_strccpy()
+	i = 0;
+	inword = 0;
+	splitcount = 0;
+	charcount = 0;
+	while (str[i])
+	{
+		if (str[i] != c)
+		{
+			inword = 1;
+			charcount++;
+		}
+		if (inword == 1 && str[i] == c)
+		{
+			inword = 0;
+			splitcount++;
+		}
+		if (splitcount == (k + 1))
+			return (charcount);
+		i++;
+	}
+	return (0);
+}
+
+static int ft_strccpy(char *arrayline, const char *str, char c, int k)
+{
+	int	i;
+	int	inword;
+	int	splitcount;
+	int j;
+
+	i = 0;
+	inword = 0;
+	splitcount = 0;
+	j = 0;
+	while (str[i])
+	{
+		if (str[i] != c)
+			inword = 1;
+		if (inword == 1 && str[i] == c)
+		{
+			inword = 0;
+			splitcount++;
+		}
+		if (splitcount == (k + 1))
+		{
+			while (str[i + j] != c)
+			{
+				arrayline[j] = str[i + j];
+				j++;
+			}
+			arrayline[j] = '\0';
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
 
 char	**ft_split(const char *s, char c)
 {
 	int		i;
 	int		splitcount;
 	char	**array;
-	int		jump;
 
 	splitcount = ft_countcwords(s, c);
 	array = (char **)malloc((splitcount + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
-	while (splitcount)
+	i = 0;
+	while (splitcount > i)
 	{
-
+		array[i] = (char *)malloc((ft_strclen(s, c, i) + 1) * sizeof(char));
+		if (!array)
+			return (NULL);
+		i++;
 	}
 	i = 0;
-	jump = 0;
-	splitcount = 0;
-	while (s[i + jump])
+	while (splitcount > i)
 	{
-		i = 0;
-		if (s[i + jump] == c && s[i + 1] != c)
-		{
-			array[splitcount][i] = '\0';
-			splitcount++;
-			jump = jump + i;
-		}
-		array[splitcount][i] = s[i + jump];
+		ft_strccpy(array[i], s, c, i);
 		i++;
 	}
 	return (array);
+}
+
+int	main(void)
+{
+	char **tab = ft_split("  tripouille  42  ", ' ');
+	ft_putstr_fd(tab[0], 1);
+	return (0);
 }
