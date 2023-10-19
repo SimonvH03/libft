@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/19 23:12:58 by simon            ###   ########.fr       */
+/*   Updated: 2023/10/19 23:24:51 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,7 @@ static int ft_strccpy(char *arrayline, const char *str, char c, int k)
 	{
 		if (str[i] != c)
 			inword = 1;
-		if (inword == 1 && str[i] == c)
-		{
-			inword = 0;
-			splitcount++;
-		}
-		if (splitcount == (k + 1))
+		if (inword && splitcount == k)
 		{
 			while (str[i + j] != c)
 			{
@@ -95,6 +90,8 @@ static int ft_strccpy(char *arrayline, const char *str, char c, int k)
 			arrayline[j] = '\0';
 			return (1);
 		}
+		if (inword && str[i] == c)
+			splitcount++;
 		i++;
 	}
 	return (0);
@@ -127,9 +124,9 @@ char	**ft_split(const char *s, char c)
 	return (array);
 }
 
-int	main(void)
-{
-	char **tab = ft_split("  tripouille  42  ", ' ');
-	ft_putstr_fd(tab[0], 1);
-	return (0);
-}
+// int	main(void)
+// {
+// 	char **tab = ft_split("  tripouille  42  ", ' ');
+// 	ft_putstr_fd(tab[1], 1);
+// 	return (0);
+// }
