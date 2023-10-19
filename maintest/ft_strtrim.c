@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 16:55:23 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/19 19:02:28 by svan-hoo         ###   ########.fr       */
+/*   Created: 2023/10/19 17:38:54 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/10/19 19:55:40 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *c)
-{
-	int	s;
-	int	i;
 
-	s = 1;
+char	*ft_strtrim(const char *s1, const char *set)
+{
+	size_t		i;
+	size_t		s1len;
+	char		*trim;
+	const char	*s1start;
+
 	i = 0;
-	while (*c == 32 || (*c >= 9 && *c <= 13))
-		c++;
-	if (*c == '-' || *c == '+')
-	{
-		if (*c == '-')
-			s = -s;
-		c++;
-	}
-	while (*c >= 48 && *c <= 57)
-		i = (i * 10) + (*c++ - 48);
-	return (s * i);
+	while (ft_strchr(set, s1[i]) && s1[i])
+		i++;
+	s1start = s1 + i;
+	s1len = ft_strlen(s1start);
+	i = 0;
+	while (ft_strchr(set, s1start[s1len - 1 - i]) && s1len > i)
+		i++;
+	trim = (char *)malloc((s1len - i + 1) * sizeof(char));
+	if (!trim)
+		return (NULL);
+	ft_strlcpy(trim, s1start, (s1len - i + 1));
+	return (trim);
 }

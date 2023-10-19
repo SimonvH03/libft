@@ -6,13 +6,13 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 18:43:44 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/13 19:21:02 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/19 19:01:48 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(char *str, int c)
+const char	*ft_strchr(const char *str, int c)
 {
 	int	i;
 

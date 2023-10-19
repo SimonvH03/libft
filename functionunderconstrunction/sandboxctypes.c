@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   sandboxctypes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 16:55:23 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/19 19:02:28 by svan-hoo         ###   ########.fr       */
+/*   Created: 2023/10/19 18:47:09 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/10/19 18:55:53 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ctype.h>
+#include <stdio.h>
 
-int	ft_atoi(const char *c)
+int	main(void)
 {
-	int	s;
-	int	i;
-
-	s = 1;
-	i = 0;
-	while (*c == 32 || (*c >= 9 && *c <= 13))
-		c++;
-	if (*c == '-' || *c == '+')
-	{
-		if (*c == '-')
-			s = -s;
-		c++;
-	}
-	while (*c >= 48 && *c <= 57)
-		i = (i * 10) + (*c++ - 48);
-	return (s * i);
+	printf("alphaT:	%d\n", isalpha(97));
+	printf("digiT: 	%d\n", isdigit(49));
+	printf("alnumT: %d\n", isalnum(49));
+	printf("prinT: 	%d\n", isprint(32));
+	printf("asciiT: %d\n", isascii(49));
+	return (0);
 }

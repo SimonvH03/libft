@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/19 17:07:49 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/19 19:01:58 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
-char		*ft_strchr(char *str, int c);
+const char	*ft_strchr(const char *str, int c);
 char		*ft_strdup(const char *s);
 size_t		ft_strlcat(char *dst, const char *src, size_t l);
 size_t		ft_strlcpy(char *dst, const char *src, size_t l);
@@ -43,6 +43,8 @@ size_t		ft_strlen(const char *c);
 int			ft_strncmp(const char *a, const char *b, size_t n);
 const char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 const char	*ft_strrchr(const char *str, int c);
+char		*ft_strtrim(const char *s1, const char *set);
+char		*ft_substr(const char *s, unsigned int start, size_t len);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 
