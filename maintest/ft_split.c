@@ -3,130 +3,77 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/19 23:24:51 by simon            ###   ########.fr       */
+/*   Updated: 2023/10/22 18:08:10 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_countcwords(const char *str, char c)
+static int	ft_splitcount(const char *s, const char c)
 {
-	int	i;
-	int	inword;
-	int	count;
+	int		i;
+	size_t	count;
 
 	i = 0;
-	inword = 0;
 	count = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] != c)
-			inword = 1;
-		if (inword == 1 && str[i] == c)
-		{
-			inword = 0;
+		while (s[i] == c)
+			i++;
+		if (s[i])
 			count++;
-		}
-		i++;
+		while (s[i] != c && s[i])
+			i++;
 	}
 	return (count);
 }
 
-static int	ft_strclen(const char *str, char c, int k)
+char	*ft_splitdup(const char *s, const char c)
 {
-	int	i;
-	int	inword;
-	int	splitcount;
-	int charcount;
+	size_t	i;
+	char	*ptr;
 
 	i = 0;
-	inword = 0;
-	splitcount = 0;
-	charcount = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-		{
-			inword = 1;
-			charcount++;
-		}
-		if (inword == 1 && str[i] == c)
-		{
-			inword = 0;
-			splitcount++;
-		}
-		if (splitcount == (k + 1))
-			return (charcount);
+	while (s[i] && s[i] != c)
 		i++;
-	}
-	return (0);
-}
-
-static int ft_strccpy(char *arrayline, const char *str, char c, int k)
-{
-	int	i;
-	int	inword;
-	int	splitcount;
-	int j;
-
-	i = 0;
-	inword = 0;
-	splitcount = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-			inword = 1;
-		if (inword && splitcount == k)
-		{
-			while (str[i + j] != c)
-			{
-				arrayline[j] = str[i + j];
-				j++;
-			}
-			arrayline[j] = '\0';
-			return (1);
-		}
-		if (inword && str[i] == c)
-			splitcount++;
-		i++;
-	}
-	return (0);
-}
-
-char	**ft_split(const char *s, char c)
-{
-	int		i;
-	int		splitcount;
-	char	**array;
-
-	splitcount = ft_countcwords(s, c);
-	array = (char **)malloc((splitcount + 1) * sizeof(char *));
-	if (!array)
+	ptr = malloc((i + 1) * sizeof(char));
+	if (!ptr)
 		return (NULL);
 	i = 0;
-	while (splitcount > i)
+	while (s[i] && s[i] != c)
 	{
-		array[i] = (char *)malloc((ft_strclen(s, c, i) + 1) * sizeof(char));
-		if (!array)
-			return (NULL);
+		ptr[i] = s[i];
 		i++;
 	}
-	i = 0;
-	while (splitcount > i)
-	{
-		ft_strccpy(array[i], s, c, i);
-		i++;
-	}
-	return (array);
+	ptr[i] = '\0';
+	return (ptr);
 }
 
-// int	main(void)
-// {
-// 	char **tab = ft_split("  tripouille  42  ", ' ');
-// 	ft_putstr_fd(tab[1], 1);
-// 	return (0);
-// }
+char	**ft_split(const char *s, const char c)
+{
+	char	**list;
+	int		row;
+	int		i;
+
+	row = 0;
+	i = 0;
+	list = (char **)malloc((ft_splitcount(s, c) + 1) * sizeof(char *));
+	if (!list)
+		return (NULL);
+	while (s[i])
+	{
+		while (s[i] == c)
+			i++;
+		if (s[i])
+		{
+			list[row] = ft_splitdup((s + i), c);
+			i += ft_strlen(list[row]);
+			row++;
+		}
+	}
+	list[row] = NULL;
+	return (list);
+}
