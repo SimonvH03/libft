@@ -18,11 +18,11 @@ all: $(NAME)
 	cc $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	@ar rc $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 clean:
-	$(RM) $(OBJ) libft.a
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)

@@ -6,12 +6,11 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:54 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/19 19:55:40 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:21:31 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 char	*ft_strtrim(const char *s1, const char *set)
 {

@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/22 21:40:15 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:56:09 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
 char		**ft_split(const char *s, char c);
-const char	*ft_strchr(const char *str, int c);
+char		*ft_strchr(const char *str, int c);
 char		*ft_strdup(const char *s);
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 char		*ft_strjoin(const char *s1, const char *s2);
@@ -46,8 +46,8 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t l);
 size_t		ft_strlen(const char *c);
 char		*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 int			ft_strncmp(const char *a, const char *b, size_t n);
-const char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
-const char	*ft_strrchr(const char *str, int c);
+char		*ft_strnstr(const char *haystack, const char *needle, size_t n);
+char		*ft_strrchr(const char *str, int c);
 char		*ft_strtrim(const char *s1, const char *set);
 char		*ft_substr(const char *s, unsigned int start, size_t len);
 int			ft_tolower(int c);

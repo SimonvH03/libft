@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:33 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/22 22:13:36 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:50:59 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,37 +27,37 @@ size_t	ft_intlen(int n)
 	return (len);
 }
 
-void	ft_putpnbr(char *ptr, int n)
+void	ft_putpnbr(char *ptr, int n, size_t len)
 {
 	if (n == INT_MIN)
+	{
 		ft_strlcpy(ptr, "-2147483648", 13);
+		return ;
+	}
 	if (n < 0)
 	{
 		*ptr = '-';
 		n = -n;
-		ptr++;
 	}
-	if (n > 9)
+	else
+		*ptr = '0';
+	ptr[len] = '\0';
+	while (n != 0)
 	{
-		ft_putpnbr(ptr, n / 10);
-		ptr++;
-		n = n % 10;
+		ptr[--len] = (n % 10) + 48;
+		n /= 10;
 	}
-	if (n <= 9)
-	{
-		*ptr = n + 48;
-		ptr++;
-	}
-	*ptr = '\0';
 }
 
 char	*ft_itoa(int n)
 {
 	char	*ptr;
+	size_t	nlen;
 
-	ptr = (char *)malloc((ft_intlen(n) + 1) * sizeof(char));
+	nlen = ft_intlen(n);
+	ptr = (char *)malloc((nlen + 1) * sizeof(char));
 	if (!ptr)
 		return (NULL);
-	ft_putpnbr(ptr, n);
+	ft_putpnbr(ptr, n, nlen);
 	return (ptr);
 }
