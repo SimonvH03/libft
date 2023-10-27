@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:19:24 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/27 19:22:11 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/27 21:00:34 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int	ft_strncmp(const char *a, const char *b, size_t n)
 		return (0);
 	while ((i + 1) < n && (unsigned char)a[i] == (unsigned char)b[i] && a[i])
 		i++;
-	return (a[i] - b[i]);
+	return ((unsigned char)a[i] - (unsigned char)b[i]);
 }

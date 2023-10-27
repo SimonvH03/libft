@@ -8,11 +8,11 @@ ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strc
 ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c \
 ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
 
-BONUS= 
+BONUS= ft_lstmap.c ft_lstnew.c ft_lstclear.c ft_lstadd_back.c ft_lstlast.c ft_lstdelone.c ft_lstsize.c ft_lstadd_front.c
 
 OBJ= $(SRC:.c=.o)
 
-BONUSOBJ= $(BONUS:.c=.o)
+BOBJ= $(BONUS:.c=.o)
 
 all		: $(NAME)
 
@@ -20,17 +20,17 @@ $(NAME)	: $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 %.o	: %.c
-	cc $(CFLAGS) -c $<
+	cc $(CFLAGS) -c $< -o $@
 
 clean	:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(BOBJ)
 
 fclean	: clean
-	rm -f $(OBJ) $(NAME)
+	rm -f $(NAME)
 
 re		: fclean all
 
-bonus	: $(BONUSOBJ)
-	ar rcs $(NAME) $(OBJ) $(BONUSOBJ)
+bonus	: $(NAME) $(BOBJ)
+	ar rcs $(NAME) $(BOBJ)
 
 .PHONY	: all clean fclean re bonus
