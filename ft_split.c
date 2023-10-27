@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/23 21:50:59 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:27:13 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_splitcount(const char *s, const char c)
 	return (count);
 }
 
-char	*ft_splitdup(const char *s, const char c)
+static char	*ft_splitdup(const char *s, const char c)
 {
 	size_t	i;
 	char	*ptr;
@@ -77,7 +77,7 @@ char	**ft_split(const char *s, const char c)
 			i++;
 		if (s[i])
 		{
-			array[row] = ft_splitdup((s + i), c);
+			array[row] = ft_splitdup((char *)(s + i), c);
 			if (!array[row])
 				return (ft_freeall(array, row));
 			i += ft_strlen(array[row]);

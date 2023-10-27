@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:04:03 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/13 18:11:00 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:21:30 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (str[i] == chr)
-			return ((void *)str + i);
+		if (str[i] == (unsigned char)chr)
+			return ((void *)(str + i));
 		i++;
 	}
-	return ((void *)0);
+	return (NULL);
 }

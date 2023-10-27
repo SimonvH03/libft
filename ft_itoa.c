@@ -6,13 +6,13 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:33 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/23 16:50:59 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:19:57 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_intlen(int n)
+static size_t	ft_intlen(int n)
 {
 	size_t	len;
 
@@ -27,7 +27,7 @@ size_t	ft_intlen(int n)
 	return (len);
 }
 
-void	ft_putpnbr(char *ptr, int n, size_t len)
+static void	ft_putpnbr(char *ptr, int n, size_t len)
 {
 	if (n == INT_MIN)
 	{

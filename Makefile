@@ -1,6 +1,6 @@
-NAME=libft.a
+NAME= libft.a
 
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror
 
 SRC= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
@@ -10,23 +10,27 @@ ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_
 
 BONUS= 
 
-OBJ=$(SRC:.c=.o)
+OBJ= $(SRC:.c=.o)
 
-all: $(NAME)
+BONUSOBJ= $(BONUS:.c=.o)
 
-$(NAME): $(OBJ)
+all		: $(NAME)
+
+$(NAME)	: $(OBJ)
 	ar rcs $(NAME) $(OBJ)
-	ranlib $(NAME)
 
-$(NAME)(%.o): $(NAME)(%.c)
-	cc $(CFLAGS) -c $< -o $@
+%.o	: %.c
+	cc $(CFLAGS) -c $<
 
-clean:
+clean	:
 	rm -f $(OBJ)
 
-fclean: clean
+fclean	: clean
 	rm -f $(OBJ) $(NAME)
 
-re: fclean all
+re		: fclean all
 
-.PHONY: all clean fclean re
+bonus	: $(BONUSOBJ)
+	ar rcs $(NAME) $(OBJ) $(BONUSOBJ)
+
+.PHONY	: all clean fclean re bonus

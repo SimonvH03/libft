@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:21:57 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/26 18:36:10 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:20:25 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		*lst = temp->next;
 	}
 	lst = NULL;
-	return ;
 }
