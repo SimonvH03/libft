@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:25:45 by simon             #+#    #+#             */
-/*   Updated: 2023/10/23 18:41:59 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/30 21:50:51 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	ucsrc = (unsigned char *)src;
 	if (dest < src)
 	{
-		while (n--)
+		while (i < n)
 		{
 			ucdest[i] = ucsrc[i];
 			i++;

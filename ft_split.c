@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/27 19:27:13 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/30 22:06:14 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char	*ft_splitdup(const char *s, const char c)
 	while (s[i] && s[i] != c)
 		i++;
 	ptr = malloc((i + 1) * sizeof(char));
-	if (!ptr)
+	if (ptr == NULL)
 		return (NULL);
 	i = 0;
 	while (s[i] && s[i] != c)
@@ -69,7 +69,7 @@ char	**ft_split(const char *s, const char c)
 	row = 0;
 	i = 0;
 	array = (char **)malloc((ft_splitcount(s, c) + 1) * sizeof(char *));
-	if (!array)
+	if (array == NULL)
 		return (NULL);
 	while (s[i])
 	{
@@ -77,8 +77,8 @@ char	**ft_split(const char *s, const char c)
 			i++;
 		if (s[i])
 		{
-			array[row] = ft_splitdup((char *)(s + i), c);
-			if (!array[row])
+			array[row] = ft_splitdup((char *)&s[i], c);
+			if (array[row] == NULL)
 				return (ft_freeall(array, row));
 			i += ft_strlen(array[row]);
 			row++;

@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:55:23 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/27 19:19:15 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/30 22:05:49 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int	ft_atoi(const char *c)
 {
-	int	s;
-	int	i;
+	int	sign;
+	int	num;
 
-	s = 1;
-	i = 0;
+	sign = 1;
+	num = 0;
 	while (*c == ' ' || (*c >= 9 && *c <= 13))
 		c++;
 	if (*c == '-' || *c == '+')
 	{
 		if (*c == '-')
-			s = -s;
+			sign = -sign;
 		c++;
 	}
 	while (*c >= '0' && *c <= '9')
-		i = (i * 10) + (*c++ - '0');
-	return (s * i);
+		num = (num * 10) + (*c++ - '0');
+	return (sign * num);
 }

@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:54 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/23 16:21:31 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/30 21:54:10 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	while (ft_strchr(set, s1start[s1len - 1 - i]) && s1len > i)
 		i++;
 	trim = (char *)malloc((s1len - i + 1) * sizeof(char));
-	if (!trim)
+	if (trim == NULL)
 		return (NULL);
 	ft_strlcpy(trim, s1start, (s1len - i + 1));
 	return (trim);

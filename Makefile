@@ -1,6 +1,6 @@
 NAME	=	libft.a
 
-BNAME	=	i_just_added_this_for_readability
+BNAME	=	bunosrelinkprevention.txt
 
 CFLAGS	=	-Wall -Wextra -Werror
 
@@ -64,6 +64,7 @@ $(NAME): $(OBJ)
 
 $(BNAME): $(NAME) $(BOBJ)
 	ar rcs $(NAME) $(BOBJ)
+	touch $(BNAME)
 
 %.o: %.c
 	cc $(CFLAGS) -c $< -o $@
@@ -71,11 +72,13 @@ $(BNAME): $(NAME) $(BOBJ)
 
 
 clean:
-	rm -f $(OBJ) $(BOBJ)
+	rm -f $(OBJ)
+	rm -f $(BOBJ)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BNAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all bonus clean fclean re
