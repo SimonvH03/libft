@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:39:03 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/30 21:54:18 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/30 22:23:28 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	sub = (char *)malloc(len + 1);
 	if (sub == NULL)
 		return (NULL);
-	while (s[i] && len--)
+	while (s[i] && i < len)
 	{
 		sub[i] = s[start + i];
 		i++;

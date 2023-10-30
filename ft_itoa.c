@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:33 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/27 19:19:57 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/30 22:18:20 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static size_t	ft_intlen(int n)
 	return (len);
 }
 
-static void	ft_putpnbr(char *ptr, int n, size_t len)
+static void	ft_putnbr_ptr(char *ptr, int n, size_t len)
 {
 	if (n == INT_MIN)
 	{
@@ -58,6 +58,6 @@ char	*ft_itoa(int n)
 	ptr = (char *)malloc((nlen + 1) * sizeof(char));
 	if (!ptr)
 		return (NULL);
-	ft_putpnbr(ptr, n, nlen);
+	ft_putnbr_ptr(ptr, n, nlen);
 	return (ptr);
 }

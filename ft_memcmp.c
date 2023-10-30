@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:37:21 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/27 19:23:20 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/30 22:19:47 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		return (0);
 	while ((i + 1) < n && str1[i] == str2[i])
 		i++;
-	return (str1[i] - str2[i]);
+	return ((int)(str1[i] - str2[i]));
 }

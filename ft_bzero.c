@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:16:40 by simon             #+#    #+#             */
-/*   Updated: 2023/10/27 19:19:34 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/30 22:15:42 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-	char	*str;
+	size_t			i;
+	unsigned char	*str;
 
 	i = 0;
 	str = s;
 	while (n--)
 	{
-		str[i] = '\0';
+		str[i] = 0;
 		i++;
 	}
 }
