@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:21:57 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/30 16:27:05 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/10/30 16:42:56 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (*lst == NULL)
-		*lst = new;
-	else
+	if (lst == NULL)
+		return ;
+	else if (*lst != NULL)
 		ft_lstlast(*lst)->next = new;
+	else
+		*lst = new;
 }

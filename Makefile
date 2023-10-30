@@ -1,6 +1,6 @@
 NAME	=	libft.a
 
-BNAME	=	sometin
+BNAME	=	i_just_added_this_for_readability
 
 CFLAGS	=	-Wall -Wextra -Werror
 
