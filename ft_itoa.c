@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:33 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/30 22:18:20 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/01 18:51:46 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_itoa(int n)
 
 	nlen = ft_intlen(n);
 	ptr = (char *)malloc((nlen + 1) * sizeof(char));
-	if (!ptr)
+	if (ptr == NULL)
 		return (NULL);
 	ft_putnbr_ptr(ptr, n, nlen);
 	return (ptr);

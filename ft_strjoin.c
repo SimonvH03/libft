@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:37:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/30 21:52:36 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/01 19:00:14 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,4 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	ft_strlcat(ptr, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
 	return (ptr);
 }
+//OPTIMIZE

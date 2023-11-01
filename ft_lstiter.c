@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:21:57 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/30 16:25:31 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/01 18:52:46 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while ((lst != NULL) && f != NULL)
+	while (f != NULL && (lst != NULL))
 	{
 		f(lst->content);
 		lst = lst->next;
