@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 18:51:27 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/30 22:04:26 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/01 22:19:12 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *str, int c)
 	while (len + 1)
 	{
 		if (str[len] == (char)c)
-			return ((char *)&str[len]);
+			return ((char *)(str + len));
 		len--;
 	}
 	return (NULL);

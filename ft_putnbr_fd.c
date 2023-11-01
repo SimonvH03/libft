@@ -6,36 +6,56 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 15:02:32 by simon             #+#    #+#             */
-/*   Updated: 2023/11/01 18:59:03 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/01 22:02:24 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+static size_t	ft_intlen(int n)
 {
-	char	c;
+	size_t	len;
 
+	len = 1;
+	if (n < 0)
+		len++;
+	while (n > 9 || n < -9)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
+}
+
+static void	ft_putnbr_ptr(char *ptr, int n)
+{
+	size_t	len;
+
+	len = ft_intlen(n);
 	if (n == INT_MIN)
 	{
-		ft_putstr_fd("-2147483648", fd);
+		ft_strlcpy(ptr, "-2147483648", 13);
 		return ;
 	}
 	if (n < 0)
 	{
-		c = '-';
-		write(fd, &c, 1);
+		*ptr = '-';
 		n = -n;
 	}
-	if (n > 9)
+	else
+		*ptr = '0';
+	ptr[len] = '\0';
+	while (n != 0)
 	{
-		ft_putnbr_fd((n / 10), fd);
-		n = n % 10;
-	}
-	if (n <= 9)
-	{
-		c = n + 48;
-		write(fd, &c, 1);
+		ptr[--len] = (n % 10) + 48;
+		n /= 10;
 	}
 }
-// OPTIMIZE
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	*str;
+
+	ft_putnbr_ptr(str, n);
+	ft_putstr_fd(str, fd);
+}

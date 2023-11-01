@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:19 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/22 20:52:07 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/01 22:13:53 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (s[i])
 	{
-		f(i, &s[i]);
+		f(i, (s + i));
 		i++;
 	}
 	return ;

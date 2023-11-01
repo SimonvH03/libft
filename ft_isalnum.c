@@ -6,15 +6,13 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:58:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/10/30 22:13:26 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/01 21:47:21 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalnum(int c)
 {
-	if ((c >= 48 && c <= 57)
-		|| (c >= 65 && c <= 90)
-		|| (c >= 97 && c <= 122))
+	if (ft_isdigit(c) || ft_isalpha(c))
 		return (1 << 3);
 	else
 		return (0);

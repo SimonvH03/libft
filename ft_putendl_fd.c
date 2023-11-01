@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:57:41 by simon             #+#    #+#             */
-/*   Updated: 2023/11/01 20:06:57 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/01 21:57:19 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int		i;
+	char	*copy;
 
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	write(fd, "\n", 1);
+	while (*s)
+		*copy = *s;
+	*copy = '\n';
+	ft_putstr_fd(copy, fd);
 }
-z
