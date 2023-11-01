@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:19:24 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/01 19:59:39 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/01 20:07:00 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strncmp(const char *a, const char *b, size_t n)
 	size_t			i;
 	unsigned char	*uca;
 	unsigned char	*ucb;
-//fuck
+z
 	i = 0;
 	if (n == 0)
 		return (0);
