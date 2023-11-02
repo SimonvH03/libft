@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:20:13 by simon             #+#    #+#             */
-/*   Updated: 2023/11/01 18:56:07 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:54:44 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,12 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t				i;
-	unsigned char		*ucdest;
-	const unsigned char	*ucsrc;
+	unsigned char	*ucdest;
 
-	if (!dest && !src)
+	if (dest == NULL && src == NULL)
 		return (NULL);
-	i = 0;
-	ucdest = (unsigned char *)dest;
-	ucsrc = (const unsigned char *)src;
-	while (i < n)
-	{
-		ucdest[i] = ucsrc[i];
-		i++;
-	}
+	ucdest = dest;
+	while (n--)
+		*ucdest++ = *(unsigned char *)src++;
 	return (dest);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:21:57 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/01 21:49:51 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/02 16:10:15 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst != NULL)
-		return ;
-	while (lst->next != NULL)
-		lst = lst->next;
+		while (lst->next != NULL)
+			lst = lst->next;
 	return (lst);
 }
