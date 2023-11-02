@@ -1,7 +1,5 @@
 NAME	=	libft.a
 
-BNAME	=	bunosrelinkprevention.txt
-
 CFLAGS	=	-Wall -Wextra -Werror
 
 SRC		=	ft_atoi.c \
@@ -57,14 +55,11 @@ BOBJ	=	$(BSRC:.c=.o)
 
 all: $(NAME)
 
-bonus: $(BNAME)
-
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-$(BNAME): $(NAME) $(BOBJ)
+bonus: $(NAME) $(BOBJ)
 	ar rcs $(NAME) $(BOBJ)
-	touch $(BNAME)
 
 %.o: %.c
 	cc $(CFLAGS) -c $< -o $@
