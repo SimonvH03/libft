@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/01 16:35:51 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:58:05 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 size_t		ft_strlcat(char *dst, const char *src, size_t l);
 size_t		ft_strlcpy(char *dst, const char *src, size_t l);
 size_t		ft_strlen(const char *c);
+size_t		ft_intlen(int n);
 
 int			ft_atoi(const char *c);
 void		ft_bzero(void *s, size_t n);
@@ -51,6 +52,10 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
+
+void		ft_putnbr(int n);
+void		ft_putchar(char c);
+void		ft_putstr(char *str);
 
 char		**ft_split(const char *s, char c);
 char		*ft_strchr(const char *str, int c);
