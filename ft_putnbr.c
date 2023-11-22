@@ -6,31 +6,25 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:49:58 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/14 20:53:48 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:16:02 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_putnbr(long n)
 {
-	if (n == INT_MIN)
-	{
-		ft_putstr("-2147483648");
-		return ;
-	}
+	int	len;
+
+	len = 0;
 	if (n < 0)
 	{
-		ft_putchar('-');
+		len += ft_putchar('-');
 		n = -n;
 	}
-	if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		n = n % 10;
-	}
-	if (n <= 9)
-	{
-		ft_putchar(n + 48);
-	}
+	if (n >= 10)
+		len += ft_putnbr(n / 10);
+	n = n % 10;
+	len += ft_putchar(n + 48);
+	return (len);
 }

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 20:58:59 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/22 18:39:45 by svan-hoo         ###   ########.fr       */
+/*   Created: 2023/11/14 20:49:58 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/11/22 19:16:19 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(int n)
+int	ft_putnbr_base(long n, char *base)
 {
-	int	len;
+	int			*len;
+	const int	size = ft_strlen(base);
 
-	len = 1;
+	len = 0;
 	if (n < 0)
-		len++;
-	while (n >= 10 || n <= -10)
 	{
-		n = n / 10;
-		len++;
+		len += ft_putchar('-');
+		n = -n;
 	}
+	while (n >= size)
+		len += ft_putnbr_base(n / size, base);
+	n = n % size;
+	len += ft_putchar(base[n]);
 	return (len);
 }

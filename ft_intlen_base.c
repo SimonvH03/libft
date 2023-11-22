@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_intlen_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:58:59 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/22 18:39:45 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/22 18:54:49 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(int n)
+int	ft_intlen_base(int n, char *base)
 {
-	int	len;
+	int			len;
+	const int	size = ft_strlen(base);
 
 	len = 1;
 	if (n < 0)
 		len++;
-	while (n >= 10 || n <= -10)
+	while (n >= size || n <= -size)
 	{
-		n = n / 10;
+		n = n / size;
 		len++;
 	}
 	return (len);
