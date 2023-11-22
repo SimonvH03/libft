@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/02 18:57:19 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/07 01:50:29 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,12 @@ static char	*ft_splitdup(const char *s, const char c)
 	i = 0;
 	while (s[i] && s[i] != c)
 		i++;
-	ptr = malloc((i + 1) * sizeof(char));
+	ptr = (char *)malloc((i + 1) * sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
-	i = 0;
-	while (s[i] && s[i] != c)
-	{
-		ptr[i] = s[i];
-		i++;
-	}
 	ptr[i] = '\0';
+	while (i--)
+		ptr[i] = s[i];
 	return (ptr);
 }
 
