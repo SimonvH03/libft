@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:49:58 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/22 19:16:19 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:02:14 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putnbr_base(long n, char *base)
 {
-	int			*len;
+	int			len;
 	const int	size = ft_strlen(base);
 
 	len = 0;
@@ -23,7 +23,7 @@ int	ft_putnbr_base(long n, char *base)
 		len += ft_putchar('-');
 		n = -n;
 	}
-	while (n >= size)
+	if (n >= size)
 		len += ft_putnbr_base(n / size, base);
 	n = n % size;
 	len += ft_putchar(base[n]);
