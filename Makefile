@@ -36,7 +36,8 @@ SRC		=	ft_atoi.c \
 			ft_strtrim.c \
 			ft_substr.c \
 			ft_tolower.c \
-			ft_toupper.c
+			ft_toupper.c \
+			ft_writing.c
 
 BSRC	=	ft_lstadd_back.c \
 			ft_lstadd_front.c \
@@ -64,8 +65,6 @@ bonus: $(NAME) $(BOBJ)
 
 %.o: %.c
 	cc $(CFLAGS) -c $< -o $@
-
-
 
 clean:
 	rm -f $(OBJ)
