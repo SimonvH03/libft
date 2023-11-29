@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:46:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/29 21:07:27 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/29 21:12:54 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,6 @@
 #define MARKUP "\033[35m\\"
 #define MARKDOWN "\033[0m"
 #define BACKPRINT "\a\b\t\n\v\f\r\177"
-
-static int	ft_isbackprint(int c)
-{
-	int	i;
-
-	i = 0;
-	while (i < 9)
-		if (c == BACKPRINT[i++])
-			return (1);
-	return (0);
-}
 
 static int	ft_putchar_octal(const int c)
 {
@@ -75,7 +64,7 @@ int	ft_writing(const char *str, int n)
 	{
 		if (i >= strlen)
 			write(1, "\033[2m", 4);
-		if (ft_isbackprint(str[i]))
+		if (ft_strchr(BACKPRINT, str[i]))
 			len += ft_putchar_back(str[i]);
 		else if (!ft_isprint(str[i]))
 			len += ft_putchar_octal(str[i]);
