@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_writing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:46:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/29 21:12:54 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:27:00 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,26 @@ static int	ft_putchar_octal(const int c)
 	esc[2] = ((c >> 0) & 7) + '0';
 	write(1, esc, 4);
 	write(1, MARKDOWN, 4);
-	return (4);
+	return (1);
 }
 
 static int	ft_putchar_back(const int c)
 {
 	const char	*except = "abtnvfrD0";
-	int			len;
 	int			i;
 
-	len = write(1, MARKUP, 6);
+	write(1, MARKUP, 6);
 	if (c == '\177')
-		len += write(1, "DEL", 3);
+		write(1, "DEL", 3);
 	else
 	{
 		i = 0;
 		while (i < 9)
 			if (c == BACKPRINT[i++])
-				len += write(1, &except[i - 1], 1);
+				write(1, &except[i - 1], 1);
 	}
-	len += write(1, MARKDOWN, 4);
-	return (len);
+	write(1, MARKDOWN, 4);
+	return (1);
 }
 
 int	ft_writing(const char *str, int n)
@@ -72,5 +71,6 @@ int	ft_writing(const char *str, int n)
 			len += write(1, &str[i], 1);
 		i++;
 	}
+	write(1, "\033[0m", 4);
 	return (len);
 }
