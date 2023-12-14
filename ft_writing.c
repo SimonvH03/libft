@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:46:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/04 16:27:00 by simon            ###   ########.fr       */
+/*   Updated: 2023/12/14 16:25:46 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	ft_writing(const char *str, int n)
 	if (n == -1)
 		n = strlen + 1;
 	i = 0;
+	write(1, "\033[0m", 4);
 	while (i < n)
 	{
 		if (i >= strlen)
