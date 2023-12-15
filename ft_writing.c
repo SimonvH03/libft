@@ -6,12 +6,12 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:46:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/14 16:25:46 by simon            ###   ########.fr       */
+/*   Updated: 2023/12/15 16:25:37 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define MARKUP "\033[35m\\"
+#define MARKUP "\033[40;36m\\"
 #define MARKDOWN "\033[0m"
 #define BACKPRINT "\a\b\t\n\v\f\r\177"
 
@@ -19,7 +19,7 @@ static int	ft_putchar_octal(const int c)
 {
 	char	esc[4];
 
-	write(1, MARKUP, 6);
+	write(1, MARKUP, 9);
 	esc[0] = ((c >> 6) & 7) + '0';
 	esc[1] = ((c >> 3) & 7) + '0';
 	esc[2] = ((c >> 0) & 7) + '0';
@@ -33,7 +33,7 @@ static int	ft_putchar_back(const int c)
 	const char	*except = "abtnvfrD0";
 	int			i;
 
-	write(1, MARKUP, 6);
+	write(1, MARKUP, 9);
 	if (c == '\177')
 		write(1, "DEL", 3);
 	else
