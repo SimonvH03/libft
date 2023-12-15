@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:50:29 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/14 16:32:50 by simon            ###   ########.fr       */
+/*   Updated: 2023/12/15 15:55:31 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ int	main(void)
 	write(1, "\n\n", 2);
 	return (0);
 }
-make -C .. -s all clean && mv ../libft.a ./ && cc testmain.c libft.a && ./a.out
