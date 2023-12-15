@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_writingtwo.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:46:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/15 22:07:35 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/12/15 23:29:25 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #define ULEN 7
 #define MARKDOWN "\033[0m"
 #define DLEN 5
-#define WRITELEN 17
+#define WRITELEN 15
 #define BACKPRINT "\a\b\t\n\v\f\r\177"
 
-static int	ft_putchar_octal(char *out, const int c)
+static int	ft_putchar_octal(const int c)
 {
+	char	out[WRITELEN + 1];
 	char	octal[4];
 
 	ft_cpy(out, MARKUP, ULEN);
@@ -28,11 +29,13 @@ static int	ft_putchar_octal(char *out, const int c)
 	octal[2] = ((c >> 0) & 7) + '0';
 	ft_cpy(out + ULEN, octal, 3);
 	ft_cpy(out + WRITELEN - DLEN, MARKDOWN, DLEN);
-	return (write(1, out, WRITELEN));
+	write(STDOUT_FILENO, out, WRITELEN);
+	return (1);
 }
 
-static int	ft_putchar_back(char *out, const int c)
+static int	ft_putchar_back(const int c)
 {
+	char		out[WRITELEN + 1];
 	char		back[4];
 	const char	*except = "abtnvfrD0";
 	int			i;
@@ -55,16 +58,15 @@ static int	ft_putchar_back(char *out, const int c)
 	}
 	ft_cpy(out + ULEN, back, 3);
 	ft_cpy(out + WRITELEN - DLEN, MARKDOWN, DLEN);
-	return (write(1, out, WRITELEN));
+	write(STDOUT_FILENO, out, WRITELEN);
+	return (1);
 }
 
-int	ft_writingtwo(const char *str, int n)
+int	ft_writing(const char *str, int n)
 {
-	char		out[WRITELEN];
 	const int	strlen = ft_strlen(str);
 	int			len;
 	int			i;
-	int			k;
 
 	len = 0;
 	if (n == 0)
@@ -72,25 +74,19 @@ int	ft_writingtwo(const char *str, int n)
 	if (n == -1)
 		n = strlen + 1;
 	i = 0;
-	k = 0;
-	write(1, MARKDOWN, DLEN);
+	write(STDOUT_FILENO, MARKDOWN, DLEN);
 	while (i < n)
 	{
 		if (i > strlen)
-			write(1, "\033[2m", 4);
+			write(STDOUT_FILENO, "\033[2m", 4);
 		if (ft_strchr(BACKPRINT, str[i]))
-			len += ft_putchar_back(out, str[i]);
+			len += ft_putchar_back(str[i]);
 		else if (!ft_isprint(str[i]))
-			len += ft_putchar_octal(out, str[i]);
+			len += ft_putchar_octal(str[i]);
 		else
-		{
-			while (ft_isprint(str[i + k]))
-				k++;
-			len += write(1, &str[i], k);
-			i += k;
-		}
+			len += write(1, &str[i], 1);
 		i++;
 	}
-	write(1, MARKDOWN, DLEN);
+	write(STDOUT_FILENO, MARKDOWN, DLEN);
 	return (len);
 }

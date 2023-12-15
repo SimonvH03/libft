@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_writing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:46:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/15 22:33:26 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/12/15 23:17:08 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,12 @@
 #define ULEN 7
 #define MARKDOWN "\033[0m"
 #define DLEN 5
-#define WRITELEN 17
+#define WRITELEN 15
 #define BACKPRINT "\a\b\t\n\v\f\r\177"
-
-static int	ft_putprintstr(const char *str, int *i)
-{
-	int	k;
-
-	k = 0;
-	while (ft_isprint(str[k]))
-		k++;
-	*i += k - 1;
-	return (write(STDOUT_FILENO, str, k));
-}
 
 static int	ft_putchar_octal(const int c)
 {
-	char	out[WRITELEN];
+	char	out[WRITELEN + 1];
 	char	octal[4];
 
 	ft_cpy(out, MARKUP, ULEN);
@@ -46,7 +35,7 @@ static int	ft_putchar_octal(const int c)
 
 static int	ft_putchar_back(const int c)
 {
-	char		out[WRITELEN];
+	char		out[WRITELEN + 1];
 	char		back[4];
 	const char	*except = "abtnvfrD0";
 	int			i;
@@ -95,7 +84,7 @@ int	ft_writing(const char *str, int n)
 		else if (!ft_isprint(str[i]))
 			len += ft_putchar_octal(str[i]);
 		else
-			len += ft_putprintstr(&str[i], &i);
+			len += write(1, &str[i], 1);
 		i++;
 	}
 	write(STDOUT_FILENO, MARKDOWN, DLEN);
