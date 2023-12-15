@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:46:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/16 00:24:19 by simon            ###   ########.fr       */
+/*   Updated: 2023/12/16 00:30:10 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static int	ft_npcount(const char *str, int n)
 			count += WRITELEN;
 		else
 			count += 1;
+		i++;
 	}
 	return (count);
 }
@@ -91,9 +92,9 @@ int	ft_makeoutstr_writing(char *outstr, const char *str, int n)
 		if (i == n)
 			ft_cpy(outstr, "\033[2m", 4);
 		if (ft_strchr(BACKPRINT, str[i]))
-			len += ft_char_octal(outstr, str[i]);
-		else if (!ft_isprint(str[i]))
 			len += ft_char_back(outstr, str[i]);
+		else if (!ft_isprint(str[i]))
+			len += ft_char_octal(outstr, str[i]);
 		else
 			len += ft_cpy(outstr, &str[i], 1);
 		i++;
@@ -106,13 +107,17 @@ int	ft_writingtwo(const char *str, int n)
 {
 	char		*outstr;
 	const int	strlen = ft_strlen(str);
+	int			len;
 
+	len = 0;
 	if (n == 0)
 		n = strlen;
 	if (n == -1)
 		n = strlen + 1;
 	outstr = (char *)malloc(ft_npcount(str, n) + 8 + 1);
 	if (outstr == NULL)
-		return (NULL);
-	return (n);
+		return (-1);
+	len += ft_makeoutstr_writing(outstr, str, n);
+	write(1, outstr, ft_strlen(outstr));
+	return (len);
 }
