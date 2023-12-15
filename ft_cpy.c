@@ -3,17 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 22:01:12 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/15 22:01:25 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/12/16 00:14:46 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_cpy(char *out, const char *add, int n)
+int	ft_cpy(char *out, const char *add, int n)
 {
-	while (n--)
-		*out++ = *add++;
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		out[i] = add[i];
+		i++;
+	}
+	return (n);
 }

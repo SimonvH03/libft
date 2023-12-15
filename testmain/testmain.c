@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:50:29 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/15 23:28:08 by simon            ###   ########.fr       */
+/*   Updated: 2023/12/15 23:44:32 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	main(void)
 	const char	*str = "text\a\b\t\n\v\f\r\177\001\002\003\004\005\006normal text \016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037";
 	const int	n = 65;
 
-	printf("	[%d]\n\n", ft_writing(str, 0));
-	printf("	[%d]\n\n", ft_writing(str, -1));
-	printf("	[%d]\n\n", ft_writing(str, n));
+	printf(" [%d]\n\n", ft_writing(str, 0));
+	printf(" [%d]\n\n", ft_writing(str, -1));
+	printf(" [%d]\n\n", ft_writing(str, n));
 	return (0);
 }
 	// "\a\b\t\n\v\f\r\177\001\002\003\004\005\006normal text \016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037";

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/15 22:02:06 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/12/16 00:15:31 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ int			ft_lstsize(t_list *lst);
 int			ft_writing(const char *str, int n);
 int			ft_writingtwo(const char *str, int n);
 
-void		ft_cpy(char *dest, const char *src, int n);
+int			ft_cpy(char *dest, const char *src, int n);
 
 #endif
