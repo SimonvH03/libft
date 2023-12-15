@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/29 20:54:58 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/12/15 22:02:06 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,8 @@ t_list		*ft_lstnew(void *content);
 int			ft_lstsize(t_list *lst);
 
 int			ft_writing(const char *str, int n);
+int			ft_writingtwo(const char *str, int n);
+
+void		ft_cpy(char *dest, const char *src, int n);
 
 #endif
