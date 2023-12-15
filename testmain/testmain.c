@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   testmain.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:50:29 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/15 16:29:38 by simon            ###   ########.fr       */
+/*   Updated: 2023/12/15 20:56:51 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	const char	*str = "line0\nline1\nline2\n";
+	const char	*str = "line\033\nline";
 
 	write(1, "\n\033[33m 0:	", 10);
 	ft_writing(str, 0);
