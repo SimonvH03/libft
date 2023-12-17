@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_writingpoint_rewrite.c                          :+:      :+:    :+:   */
+/*   ft_writingpoint.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 00:57:06 by simon             #+#    #+#             */
-/*   Updated: 2023/12/17 16:45:52 by simon            ###   ########.fr       */
+/*   Updated: 2023/12/17 17:01:35 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define MARKUP "\033[35m\\"
+#define MARKSPEC "\033[35m"
+#define MAKEZERO "\033[31m\\0"
+#define MARKOUT "\033[2m"
 #define MARKDOWN "\033[0m"
 #define WRITELEN 13
-#define MARKOUT "\033[2m"
 
 static int	ft_nonpcount(const char *str, int n)
 {
@@ -42,7 +43,7 @@ static int	ft_convert_octal(char *dest, const int c)
 
 	while (*dest)
 		dest++;
-	ft_strcat(dest, MARKUP);
+	ft_strcat(dest, MARKSPEC);
 	if (c == '\177')
 		ft_cpy(octal, "DEL", 3);
 	else
@@ -58,16 +59,12 @@ static int	ft_convert_octal(char *dest, const int c)
 
 static int	ft_convert_backprint(char *dest, const int c)
 {
-	const char	*rep = "0123456abtnvfr";
+	const char	*rep = "abtnvfr";
 	char		back[2];
 
-	while (*dest)
-		dest++;
 	ft_bzero(back, 2);
-	ft_strcat(dest, MARKUP);
-	if (c == '\0')
-		dest[3] = '1';
-	back[0] = rep[c];
+	ft_strcat(dest, MARKSPEC);
+	back[0] = rep[c - 7];
 	ft_strcat(dest, back);
 	ft_strcat(dest, MARKDOWN);
 	return (1);
@@ -75,23 +72,20 @@ static int	ft_convert_backprint(char *dest, const int c)
 
 static int	ft_construct_writing(char *out, const char *str, int n)
 {
-	int		i;
 	char	tmp[2];
+	int		spec;
+	int		i;
 
-	i = 0;
 	ft_bzero(tmp, 2);
-	while (i < n)
+	i = 0;
+	while (n-- > 0)
 	{
-		tmp[0] = str[i];
+		tmp[0] = *str;
 		if (i == n)
 			ft_strcat(out, MARKOUT);
-		if (ft_strchr("\a\b\t\n\v\f\r", str[i]))
-			ft_convert_backprint(out, str[i]);
-		else if (!ft_isprint(str[i]))
-			ft_convert_octal(out, str[i]);
-		else
-			ft_strcat(out, tmp);
-		i++;
+		i += ft_cat_backprint(out, str);
+		i += ft_cat_octal(out, str);
+		i += ft_strcat(out, tmp);
 	}
 	ft_strcat(out, MARKDOWN);
 	ft_strcat(out, "\0");
