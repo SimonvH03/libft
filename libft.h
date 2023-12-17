@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/16 00:15:31 by simon            ###   ########.fr       */
+/*   Updated: 2023/12/17 01:22:27 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int			ft_putnbr(long n);
 int			ft_putchar(char c);
 int			ft_putstr(char *str);
 
+int			ft_strcat(char *dest, const char *src);
+
 int			ft_intlen_base(int n, char *base);
 int			ft_putnbr_base(long n, char *base);
 
@@ -85,7 +87,7 @@ t_list		*ft_lstnew(void *content);
 int			ft_lstsize(t_list *lst);
 
 int			ft_writing(const char *str, int n);
-int			ft_writingtwo(const char *str, int n);
+// char		*ft_writingpoint(const char *str, int n);
 
 int			ft_cpy(char *dest, const char *src, int n);
 
