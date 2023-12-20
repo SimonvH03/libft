@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_writing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:46:08 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/12/16 23:21:07 by simon            ###   ########.fr       */
+/*   Updated: 2023/12/20 19:45:37 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	ft_putchar_back(const int c)
 	else
 		while (BACKPRINT[i])
 			if (c == BACKPRINT[i++])
-				back[0] = BACKPRINT[i + 7];
+				back[0] = BACKPRINT[i + 8];
 	ft_cpy(out + ULEN, back, 3);
 	ft_cpy(out + WRITELEN - DLEN, MARKDOWN, DLEN);
 	write(STDOUT_FILENO, out, WRITELEN);
